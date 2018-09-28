@@ -1,5 +1,5 @@
-# Student name: Nick Muenchen
-# CID: C63495595
+# Student name:
+# CID:
 
 import argparse
 from socket import *
@@ -23,30 +23,19 @@ parser.add_argument('filename',
 args = parser.parse_args()
 
 print("server_host: " + args.server_host)
-print("server_host: " + str(args.server_port))
+print("server_host: " + args.server_port)
 print("server_host: " + args.filename)
 
-clientSocket = socket(AF_INET, SOCK_STREAM)   #Complete this code
-clientSocket.connect((args.server_host, args.server_port))   #Complete this code)
-message = "GET: /" + args.filename
-clientSocket.send(message.encode());
+clientSocket = #Complete this code
+clientSocket.connect(#Complete this code)
+clientSocket.send(#Complete this code)
 
 # Get the status line
-result = clientSocket.recv(2048).decode()    #Complete this code
+result = #Complete this code
 print(result)
 
 # You need to handle two types of responses: 200 OK responses, and 404 Not Found responses
 # Check to see which response was returned by the server and handle it appropriately
 #Complete this code
-if "200 OK" in result:
-    fullResult = ""
-    while len(result) > 0:
-        result = clientSocket.recv(2048).decode()
-        fullResult += result
-    print(fullResult)
-else:
-    if "404 Not Found" in result:
-        result = clientSocket.recv(2048).decode()
-
 
 clientSocket.close()

@@ -28,7 +28,7 @@ print("server_host: " + args.filename)
 
 clientSocket = socket(AF_INET, SOCK_STREAM)   #Complete this code
 clientSocket.connect((args.server_host, args.server_port))   #Complete this code)
-message = "GET: /" + args.filename
+message = "GET /" + args.filename + " HTTP/1.1\r\n\r\n"
 clientSocket.send(message.encode());
 
 # Get the status line
@@ -47,6 +47,7 @@ if "200 OK" in result:
 else:
     if "404 Not Found" in result:
         result = clientSocket.recv(2048).decode()
+        print(result)
 
 
 clientSocket.close()
